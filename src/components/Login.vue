@@ -130,7 +130,7 @@ export default {
                     _that.$message.success('发送验证成功')
                     let setInt = setInterval(()=>{
                         second -= 1;
-                        _that.message = `${second}s后可获取`;
+                        _that.message = `${second}s`;
                          _that.sendCode = true;
                         if(second === 0){
                             _that.message = '获取验证码';

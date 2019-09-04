@@ -4,8 +4,14 @@ import VueRouter from 'vue-router';
 Vue.use(VueRouter)
 
 const router = new VueRouter({
+    mode: 'history',
     routes: [
-        { path: '/', components: require('../pages/Home.vue') },
+        { path: '/', components: require('../pages/Home.vue'),
+            redirect: '/form/basic',
+            children: [
+                { path: '/form/basic', components: require('../components/BasicForm.vue') },
+            ]
+        },
         { path: '/user', components: require('../pages/User.vue'), 
             redirect: '/user/login',
             children: [
