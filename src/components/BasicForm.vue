@@ -1,7 +1,6 @@
 <template>
     <div class="basic-form">
         <TopBreadcrumb menu='表单页' item='基础表单'/>
-        <a-button @click="getDevice">dianwo</a-button>
     </div>
 </template>
 <script>
@@ -12,9 +11,7 @@ export default {
         TopBreadcrumb
     },
     methods:{
-        getDevice(){
-            console.log(this.$store.state.App.device)
-        }
+
     }
 }
 </script>

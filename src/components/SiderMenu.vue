@@ -1,6 +1,6 @@
 <template>
     <a-menu
-        :defaultSelectedKeys="['base-form']"
+        :defaultSelectedKeys="selectedKeys"
         :openKeys="openKeys"
         mode="inline"
         @openChange="onOpenChange"
@@ -37,6 +37,7 @@
     </a-menu>
 </template>
 <script>
+import getUrl from '../utils/getUrl';
 export default {
     name: 'SiderMenu',
     props: {
@@ -45,8 +46,15 @@ export default {
     data(){
         return{
             rootSubmenuKeys: ['form', 'list', 'profile', 'dashboard', 'account'],
-            openKeys: ['form']
+            openKeys: ['form'],
+            selectedKeys: ['base-form']
         }
+    },
+    beforeMount(){
+        let menu = getUrl();
+        this.openKeys = menu.openKeys;
+        this.selectedKeys = menu.selectedKeys;
+
     },
     methods: {
         onOpenChange (openKeys) {
