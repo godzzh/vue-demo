@@ -1,5 +1,5 @@
 <template>
-    <div class="top">
+    <div class="breadcrumbtop">
         <a-breadcrumb>
             <a-breadcrumb-item>首页</a-breadcrumb-item>
             <a-breadcrumb-item>{{menu}}</a-breadcrumb-item>
@@ -16,10 +16,10 @@ export default {
     }
 }
 </script>
-<style lang="less" scoped>
-    .top{
+<style lang="less">
+    .breadcrumbtop{
         padding: 20px 30px;
         background: #fff;
-        box-shadow: 0 2px 2px #eee;
+        box-shadow: 0 -2px 2px #eee;
     }
 </style>

@@ -22,7 +22,6 @@ const mixinDevice = {
 
 const AppDeviceEnquire = {
     mounted () {
-        console.log(1)
         const { $store } = this;
         deviceEnquire(deviceType => {
             switch (deviceType) {

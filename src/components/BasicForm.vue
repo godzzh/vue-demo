@@ -16,11 +16,5 @@ export default {
 }
 </script>
 <style lang="less" scoped>
-    .basic-form{
-        .top{
-            padding: 20px 30px;
-            background: #fff;
-            box-shadow: 0 -2px 2px #eee;
-        }
-    }
+   
 </style>
