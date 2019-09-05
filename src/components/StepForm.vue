@@ -61,20 +61,20 @@
                     <a-form :form="form2" v-show="current === 1" @submit="onForm2Submit">
                         <a-alert message="确认转账后，资金将直接打入对方账户，无法退回。" type="info" closable/>
                         <a-row type='flex' justify="space-between" style="marginTop: 30px;">
-                            <a-col :span='6' style="textAlign:right;">付款账户:</a-col>
-                            <a-col :span='17'>853471229@qq.com</a-col>
+                            <a-col :span='7' style="textAlign:right;">付款账户:</a-col>
+                            <a-col :span='16'>853471229@qq.com</a-col>
                         </a-row>
                         <a-row type='flex' justify="space-between" style="marginTop: 30px;">
-                            <a-col :span='6' style="textAlign:right;">收款账户:</a-col>
-                            <a-col :span='17'>853471229@qq.com</a-col>
+                            <a-col :span='7' style="textAlign:right;">收款账户:</a-col>
+                            <a-col :span='16'>853471229@qq.com</a-col>
                         </a-row>
                         <a-row type='flex' justify="space-between" style="marginTop: 30px;">
-                            <a-col :span='6' style="textAlign:right;">收款人姓名:</a-col>
-                            <a-col :span='17'>zzh</a-col>
+                            <a-col :span='7' style="textAlign:right;">收款人姓名:</a-col>
+                            <a-col :span='16'>zzh</a-col>
                         </a-row>
                         <a-row type='flex' justify="space-between" style="marginTop: 30px;">
-                            <a-col :span='6' style="textAlign:right;">转账金额:</a-col>
-                            <a-col :span='17'>￥ 5000</a-col>
+                            <a-col :span='7' style="textAlign:right;">转账金额:</a-col>
+                            <a-col :span='16'>￥ 5000</a-col>
                         </a-row>
                         <a-divider />
                         <a-form-item label="支付密码" :label-col="labelCol" :wrapper-col="wrapperCol" required>
