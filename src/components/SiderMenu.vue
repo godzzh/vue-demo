@@ -6,6 +6,7 @@
         @openChange="onOpenChange"
         theme="dark"
         :inlineCollapsed="collapsed"
+        @click='onMenuItem'
     >
         <a-sub-menu v-for='item in menuList' :key='item.key'>
             <span slot="title"><a-icon :type="item.iconType" /><span>{{item.title}}</span></span>
@@ -82,7 +83,6 @@ export default {
         let menu = getUrl();
         this.openKeys = menu.openKeys;
         this.selectedKeys = menu.selectedKeys;
-
     },
     methods: {
         onOpenChange (openKeys) {
@@ -93,6 +93,9 @@ export default {
                 this.openKeys = latestOpenKey ? [latestOpenKey] : []
             }
         },
+        onMenuItem(){
+            this.$emit('onMenuItem')
+        }
     },
 }
 </script>

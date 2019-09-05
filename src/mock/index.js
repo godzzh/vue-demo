@@ -29,3 +29,10 @@ Mock.mock('/api/signin', 'post', data=>{
         }
     }
 })
+
+Mock.mock('/api/basic-form', 'post', data=>{
+    return {
+        status: 200,
+        message: '提交成功'
+    }
+})

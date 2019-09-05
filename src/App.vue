@@ -9,6 +9,7 @@
 <script>
 import axios from './utils/axios';
 import { AppDeviceEnquire } from '@/utils/mixin';
+
 export default {
     name: "app",
     mixins: [AppDeviceEnquire],

@@ -1,6 +1,6 @@
 <template>
     <div class="home-page">
-        <a-drawer :visible='collapsed' @close='closeDrawer' width='208' 
+        <a-drawer :visible='!collapsed' @close='closeDrawer' width='208' 
             placement='left' 
             class="drawer"
             :closable='false'
@@ -11,7 +11,7 @@
                 <img src="https://preview.pro.loacg.com/assets/logo.f3103225.svg" alt="">
                 <h3>Vue demo</h3>
             </div>
-            <SiderMenu :collapsed='false' />
+            <SiderMenu :collapsed='false' @onMenuItem='onMenuItem'/>
         </a-drawer>
         <a-layout>
             <a-layout-sider class="sider" :collapsed='collapsed' v-if="this.$store.state.App.device !== 'mobile'">
@@ -19,9 +19,9 @@
                     <img src="https://preview.pro.loacg.com/assets/logo.f3103225.svg" alt="">
                     <h3 v-show="!collapsed">Vue demo</h3>
                 </div>
-                <SiderMenu :collapsed='collapsed' />
+                <SiderMenu :collapsed='collapsed' @onMenuItem='onMenuItem'/>
             </a-layout-sider>
-            <a-layout>
+            <a-layout class="container">
                 <a-layout-header class="header">
                     <span class="left" @click="collapsed = !collapsed">
                         <a-icon :type="!collapsed ? 'menu-fold': 'menu-unfold'" style="fontSize: 20px;color:#108ee9;"/>
@@ -35,12 +35,12 @@
                         </p>
                         <a-menu slot="overlay">
                             <a-menu-item>
-                                <router-link to='/'>
+                                <router-link to='/account/center'>
                                     <a-icon type='user' style="marginRight:10px;"/><span class="sp">个人中心</span>
                                 </router-link>
                             </a-menu-item>
                             <a-menu-item>
-                                <router-link to='/'>
+                                <router-link to='/account/setting'>
                                     <a-icon type='setting' style="marginRight:10px;"/><span class="sp">个人设置</span>
                                 </router-link>
                             </a-menu-item>
@@ -56,7 +56,14 @@
                 <a-layout-content class="content">
                     <router-view></router-view>
                 </a-layout-content>
-                <a-layout-footer>Footer</a-layout-footer>
+                <a-layout-footer class="footer">
+                    <p>
+                        <span>帮助</span>
+                        <span>隐私</span>
+                        <span>条款</span>
+                    </p>
+                    <p>Copyright © 2019 武汉网融信息技术有限公司</p>
+                </a-layout-footer>
             </a-layout>
         </a-layout>
     </div>
@@ -86,7 +93,12 @@ export default {
     methods:{
         // 关闭菜单抽屉
         closeDrawer(){
-            this.collapsed = false
+            this.collapsed = true
+        },
+        onMenuItem(){
+            if(this.$store.state.App.device === 'mobile'){
+                this.collapsed = true
+            }
         }
     }
 }
@@ -122,10 +134,9 @@ export default {
         .drawer{
             padding: 0;
             height: 100vh;
-            
         }
         .sider{
-            height: 100vh;
+            min-height: 100vh;
             .logo{
                 background-color: #002140;
                 display: flex;
@@ -148,6 +159,9 @@ export default {
                 }
             }
         }
+        .container{
+            // min-height: 100vh;
+        }
         .header{
             background-color: #fff;
             padding-left: 0;
@@ -169,6 +183,18 @@ export default {
                 display: inline-block;
                 padding: 0 10px;
                 cursor: pointer;
+            }
+        }
+        .footer{
+            padding: 15px 10px 10px;
+            box-shadow: 0 -2px 2px rgba(0, 0, 0, .1);
+            p{
+                margin-bottom: 5px;
+                text-align: center;
+                color: #999;
+                span{
+                    margin: 0 15px;
+                }
             }
         }
     }
